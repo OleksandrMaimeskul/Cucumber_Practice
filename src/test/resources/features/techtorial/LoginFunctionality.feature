@@ -10,3 +10,4 @@ Feature: Testing Login Functionality
     When User provides username and password to the Sign In Box
     #Then is all about result of actions
     Then User validates the title is 'Dashboard' from Main Page
+

@@ -13,7 +13,8 @@ public class TechtorialLoginPage {
 
     @FindBy(xpath = "//h3[.='Log In']")
     WebElement logInHeader;
-
+    @FindBy(css = ".invalid-feedback")
+    WebElement negativeFeedback;
     @FindBy(css = "#email")
     WebElement email;
 
@@ -31,5 +32,13 @@ public class TechtorialLoginPage {
 
     public boolean validateHEader() {
         return logInHeader.isDisplayed();
+    }
+
+    public String negativeFeedback() {
+        return negativeFeedback.getText().trim();
+    }
+
+    public String negativeFeedbackColor() {
+        return negativeFeedback.getCssValue("color");
     }
 }

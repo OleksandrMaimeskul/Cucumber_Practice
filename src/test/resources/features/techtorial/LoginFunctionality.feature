@@ -11,3 +11,4 @@ Feature: Testing Login Functionality
     #Then is all about result of actions
     Then User validates the title is 'Dashboard' from Main Page
 
+

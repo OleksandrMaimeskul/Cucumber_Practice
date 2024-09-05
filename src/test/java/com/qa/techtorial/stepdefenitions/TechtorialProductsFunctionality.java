@@ -60,10 +60,11 @@ public class TechtorialProductsFunctionality {
     public void user_choose_1st_3dots_button_and_view_button() {
         products.clickThreeDotsAnDViews();
     }
-    
+
     @Then("User validates the ProductCategory with title {string}")
     public void user_validates_the_product_category_with_title(String expectedProductSCategory) {
         products.validateCategoriesFilter(expectedProductSCategory);
+        driver.quit();
     }
 
 }

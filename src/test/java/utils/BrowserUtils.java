@@ -1,11 +1,14 @@
 package utils;
 
+import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Set;
 
 public class BrowserUtils {
@@ -50,15 +53,29 @@ public class BrowserUtils {
             }
         }
     }
-    public static void getScreenShot(WebDriver driver, String packageName){
-        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        String location = System.getProperty("src/test/java/"+packageName+"/");
+
+    public static void getScreenShot(WebDriver driver, String packageName) {
+        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String location = System.getProperty("src/test/java/" + packageName + "/");
         try {
-            FileUtils.copyFile(file,new File(location+System.currentTimeMillis()));
+            FileUtils.copyFile(file, new File(location + System.currentTimeMillis()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public static void getScreenShootCuCumber(WebDriver driver, Scenario scenario) {
+        Date date = new Date();
+        String screenshotFileName = date.toString().replace(" ", "-")
+                .replace(":", "-");
+        if (scenario.isFailed()) {
+            File screnshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                FileUtils.copyFile(screnshotFile, new File("src/test/java/screenshot/" + screenshotFileName + ".png"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
 

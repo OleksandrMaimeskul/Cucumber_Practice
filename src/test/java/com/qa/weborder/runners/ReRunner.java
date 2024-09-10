@@ -6,11 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/weborder",
+        features = "@target/uiFailedTests.txt",
         glue = "com/qa/weborder/stepdefenitions",
-        plugin = {"pretty", "html:target/uiReport.html", "rerun:target/uiFailedTests.txt",
-        "json:target/cucumber-reports/cucumber.json"}
+        plugin = {"pretty","html:target/uiReport.html","rerun:target/uiFailedTests.txt"}
 
 )
-public class Runner {
+public class ReRunner {
+
 }

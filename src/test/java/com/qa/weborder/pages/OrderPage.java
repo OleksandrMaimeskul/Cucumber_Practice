@@ -100,7 +100,7 @@ public class OrderPage {
                                          String cardNumber, String expireDate){
         //Please do not lose this code
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDateTime now = LocalDateTime.now().plusDays(1);
+        LocalDateTime now = LocalDateTime.now().plusHours(12);
         String currentDate = dtf.format(now);
 
         List<String> expectedInfo = Arrays.asList(customerName,product,quantity,currentDate,Street,city,state,zipCode

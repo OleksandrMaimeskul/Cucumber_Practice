@@ -1,9 +1,8 @@
-package com.qa.weborder.stepDef;
+package com.qa.weborder.stepdefenitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import net.bytebuddy.matcher.CollectionOneToOneMatcher;
 import org.openqa.selenium.WebDriver;
 import utils.BrowserUtils;
 import utils.ConfigReader;
